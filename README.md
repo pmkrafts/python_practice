@@ -45,6 +45,7 @@ python-backend-ai-agent-coding-practice/
 
 ## Documentation
 
+- [`docs/usage.md`](./docs/usage.md) — How to use the repo, create projects, run, and test
 - [`docs/execution-plan.md`](./docs/execution-plan.md) — Flexible build checklist
 - [`docs/base-structure-plan.md`](./docs/base-structure-plan.md) — Base structure and environment details
 - [`docs/structure.md`](./docs/structure.md) — Quick structure reference
