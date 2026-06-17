@@ -60,8 +60,6 @@ htmlcov/
 # Docker volumes
 postgres_data/
 redis_data/
-elasticsearch_data/
-kafka_data/
 
 # OS
 *.tmp

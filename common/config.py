@@ -17,8 +17,6 @@ class Settings(BaseSettings):
     anthropic_api_key: str | None = None
     huggingface_api_token: str | None = None
 
-    otel_exporter_otlp_endpoint: str | None = None
-
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
