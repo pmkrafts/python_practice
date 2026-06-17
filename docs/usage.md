@@ -25,16 +25,70 @@ This repository is a **learning sandbox** for 25 machine-coding projects coverin
 git clone https://github.com/pmkrafts/python_practice.git
 cd python_practice
 
-# 2. Set up the environment
-python scripts/setup.py
+# 2. Create and activate a virtual environment
+python -m venv .venv
+.venv\Scripts\activate        # Windows
+# source .venv/bin/activate   # macOS / Linux
 
-# 3. Start Postgres + Redis
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Start Postgres + Redis
 python scripts/docker_up.py
 
-# 4. Create or open a project, then run it
+# 5. Create or open a project, then run it
 cd projects/01-task-management-api
 uvicorn main:app --reload
 ```
+
+For the automated setup path, see [Environment Setup](#environment-setup) below.
+
+---
+
+## Creating a Virtual Environment
+
+A virtual environment keeps the repo's dependencies isolated from your global Python installation. **This repo uses one `.venv` folder at the repository root, shared by all projects** — not a separate venv per project.
+
+Why one root venv?
+
+- The root `pyproject.toml` / `requirements.txt` contains shared dependencies (FastAPI, SQLAlchemy, Redis, pytest, etc.).
+- All projects under `projects/` import from the same root venv.
+- If a project needs extra packages (e.g., `langchain` for an AI project), install them into the same root venv or add them to the project's own `requirements.txt`.
+
+### Manual creation
+
+```bash
+# Create the virtual environment
+python -m venv .venv
+```
+
+### Activate the virtual environment
+
+```bash
+# Windows (Command Prompt / PowerShell)
+.venv\Scripts\activate
+
+# macOS / Linux
+source .venv/bin/activate
+```
+
+Once activated, your terminal prompt will usually show `(.venv)`.
+
+### Deactivate
+
+```bash
+deactivate
+```
+
+### Using the setup script
+
+You can also let `scripts/setup.py` create the virtual environment for you:
+
+```bash
+python scripts/setup.py
+```
+
+After it runs, activate the environment as shown above.
 
 ---
 
